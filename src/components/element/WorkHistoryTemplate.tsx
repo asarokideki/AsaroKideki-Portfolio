@@ -1,4 +1,5 @@
-import { FC, useState } from "react";
+import { FC } from "react";
+import { useTranslation } from 'react-i18next';
 import { workhistories, projectlists } from "../../data/Data";
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 
@@ -17,6 +18,7 @@ type LightModeProps = {
 }
 
 const WorkHistoryTemplate: FC<LightModeProps> = ({ isLightMode, setID, setIsOpen }) => {
+    const { t } = useTranslation();
 
     const handleSetProjectID = (id: number) => {
         setID(id);
@@ -31,13 +33,13 @@ const WorkHistoryTemplate: FC<LightModeProps> = ({ isLightMode, setID, setIsOpen
                         <div key={index} className="flex lg:flex-row md:flex-col sm:flex-col flex-col w-full justify-start items-start">
                             <div className="lg:w-[25%] w-full flex flex-col justify-center items-start">
                                 <p className={`text-xl font-medium ${isLightMode ? "text-gray-900" : "text-white"}`}>
-                                    {item.company}
+                                    {t(`${item.company}`)}
                                 </p>
                                 <p className={`text-sm font-medium ${isLightMode ? "text-gray-600" : "text-white"}`}>
-                                    ({item.term})
+                                    {t(`${item.term}`)}
                                 </p>
                                 <p className={`text-lg font-medium ${isLightMode ? "text-gray-900" : "text-white"}`}>
-                                    {item.role}
+                                    {t(`${item.role}`)}
                                 </p>
                             </div>
                             <div className="lg:w-[75%] w-full">
@@ -103,8 +105,8 @@ const WorkHistoryTemplate: FC<LightModeProps> = ({ isLightMode, setID, setIsOpen
                                                         <div className="grid gap-1">
                                                             <h5
                                                                 className={`font-medium transition-all duration-500  group-hover:text-indigo-600 swiper-slide-active:text-indigo-600 ${isLightMode ? "text-gray-900" : "text-white"}`}>
-                                                                {projects.title}</h5>
-                                                            <span className="text-sm leading-6 text-gray-500">{projects.role}</span>
+                                                                {t(`${projects.title}`)}</h5>
+                                                            <span className="text-sm leading-6 text-gray-500">{t(`${projects.role}`)}</span>
                                                         </div>
                                                     </div>
                                                 </div>

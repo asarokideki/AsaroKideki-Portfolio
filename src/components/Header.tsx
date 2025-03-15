@@ -1,6 +1,9 @@
 import { FC } from "react";
 import { category } from "../data/Data";
+import { useTranslation } from 'react-i18next';
+import { Link } from "react-router-dom";
 import LightModeButton from "./element/LightModeButton";
+import LanguageModeButton from "./element/LanguageModeButton";
 
 type LightModeProps = {
     isLightMode?: boolean,
@@ -8,17 +11,17 @@ type LightModeProps = {
 }
 
 const Header: FC<LightModeProps> = ({ isLightMode, setIsLightMode }) => {
+    const { t } = useTranslation();
 
     return (
         <nav
             className={`fixed py-4 top-0 z-40 w-full backdrop-blur transition-colors duration-500 lg:z-50 supports-backdrop-blur:bg-white/95 animate__animated animate__fadeInDown ${isLightMode ? "bg-white" : "bg-gray-900"}`}>
             <div className="container mx-auto">
                 <div className="w-full flex flex-col lg:flex-row">
-                    <div className="flex justify-between lg:flex-row">
-                        <a href="https://pagedone.io/"
-                            className="flex items-center uppercase font-bold text-2xl text-indigo-600">
-                            A.K
-                        </a>
+                    <div className="flex justify-between lg:flex-row w-[200px]">
+                        <Link to="https://asarokideki.vercel.app/" className="flex items-center uppercase font-bold text-2xl text-indigo-600">
+                            {t('name')}
+                        </Link>
                         <button data-collapse-toggle="navbar-nav-example" type="button"
                             className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                             aria-controls="navbar-nav-example" aria-expanded="false">
@@ -38,7 +41,7 @@ const Header: FC<LightModeProps> = ({ isLightMode, setIsLightMode }) => {
                                     <li key={index}>
                                         <p className="group relative w-auto">
                                             <a href={"#" + item.category}
-                                                className={`flex items-center justify-between text-sm lg:text-base font-medium transition-all duration-500 uppercase ${isLightMode ? "text-gray-500 hover:text-indigo-700 " : "text-white"}`}>{item.category}</a>
+                                                className={`flex items-center justify-between text-sm lg:text-base font-medium transition-all duration-500 uppercase ${isLightMode ? "text-gray-500 hover:text-indigo-700 " : "text-white"}`}>{t(`${item.category}`)}</a>
                                             <span className={`absolute -bottom-1 left-1/2 w-0 transition-all h-0.5 group-hover:w-3/6 ${isLightMode ? "bg-indigo-600" : "bg-white"}`}></span>
                                             <span className={`absolute -bottom-1 right-1/2 w-0 transition-all h-0.5 group-hover:w-3/6 ${isLightMode ? "bg-indigo-600" : "bg-white"}`}></span>
                                         </p>
@@ -46,6 +49,7 @@ const Header: FC<LightModeProps> = ({ isLightMode, setIsLightMode }) => {
                                 ))
                             }
                             <LightModeButton setIsLightMode={setIsLightMode} isLightMode={isLightMode} />
+                            <LanguageModeButton />
                         </ul>
                     </div>
                 </div>
