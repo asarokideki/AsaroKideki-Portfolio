@@ -232,7 +232,7 @@ export const projectlists: ProjectList[] = [
     },
     {
         id: 8,
-        image: "/image/WorkHistory/moondragon.png.png",
+        image: "/image/WorkHistory/moondragon.png",
         role: "Front-End Development",
         title: "Moon Dragon",
         summary: "summary9",
@@ -242,7 +242,7 @@ export const projectlists: ProjectList[] = [
     {
         id: 9,
         image: "/image/WorkHistory/ehonnoneta.png",
-        role: "Full-stack Development",
+        role: "Full-Stack Development",
         title: "Ehonnoneta",
         summary: "summary10",
         parentID: 1,
