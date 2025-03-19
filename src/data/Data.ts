@@ -147,13 +147,13 @@ export const workhistories: WorkHistories[] = [
         id: 0,
         company: "Kita Osaka | Toyonaka",
         term: "May, 2018 - Feb, 2022",
-        role: "Senior Full Stack Developer",
+        role: "Junior Full Stack Developer",
     },
     {
         id: 1,
         company: "Senda Japan | Tokyo | Remote",
         term: "Feb, 2022 - Jun, 2025",
-        role: "Junior Full Stack Developer",
+        role: "Senior Full Stack Developer",
     }
 ]
 
